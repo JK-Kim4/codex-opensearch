@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: book-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookdb
+    username: book
+    password: book
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
