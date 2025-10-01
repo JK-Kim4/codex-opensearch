@@ -35,7 +35,12 @@ src/main/java/com/example/bookapi
     └── Series.java
 ```
 
+## OpenSearch 연동
+- `docker run -p 9200:9200 -e discovery.type=single-node -e OPENSEARCH_INITIAL_ADMIN_PASSWORD=admin --name opensearch opensearchproject/opensearch:2.11.0`과 같이 OpenSearch를 로컬에서 실행합니다. (테스트 용도로 보안을 비활성화하려면 `-e plugins.security.disabled=true` 옵션을 추가하고 비밀번호 설정을 제거합니다.)
+- `src/main/resources/application.yml`의 `opensearch` 섹션을 환경에 맞게 조정합니다.
+- 도서 등록 API가 성공하면 Spring `ApplicationEvent`가 발행되고, 커밋 이후 OpenSearch 인덱스(`books`)에 문서가 생성됩니다.
+
 ## 다음 단계 아이디어
 - JPA 엔티티 간 연관관계를 활용한 CRUD 서비스 및 REST 컨트롤러 구현
 - Flyway/Liquibase 기반 스키마 관리
-- OpenSearch 연동 구성 및 색인 도큐먼트 설계
+- 검색 조건/필터 API 구현 및 테스트 작성
