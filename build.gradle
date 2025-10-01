@@ -12,6 +12,7 @@ defaultTasks 'build'
 
 repositories {
     mavenCentral()
+    maven { url 'https://aws.oss.sonatype.org/content/repositories/releases/' }
 }
 
 dependencies {
@@ -19,6 +20,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.opensearch.client:opensearch-java:2.11.0'
+    implementation 'org.opensearch.client:opensearch-rest-client:2.11.0'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
     runtimeOnly 'org.postgresql:postgresql'
 

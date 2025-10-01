@@ -22,9 +22,6 @@ public class Author extends AuditableEntity {
     @Column(nullable = false, length = 200)
     private String name;
 
-    @Column(name = "name_kana", length = 200)
-    private String nameKana;
-
     @Column(columnDefinition = "TEXT")
     private String description;
 
@@ -51,14 +48,6 @@ public class Author extends AuditableEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNameKana() {
-        return nameKana;
-    }
-
-    public void setNameKana(String nameKana) {
-        this.nameKana = nameKana;
     }
 
     public String getDescription() {
